@@ -7,7 +7,7 @@ int SevenPin = 9;
 double lastMotor1 = 0;
 double lastMotor2 = 0;
      
-Stepper motor1(512, FourPin, FivePin, SixPin, SevenPin); 
+Stepper stepperMotor1(512, FourPin, FivePin, SixPin, SevenPin); 
 
 void setup(void)
 {
@@ -23,7 +23,7 @@ void setup(void)
   while (!Serial);
       
     Serial.begin(9600);
-    motor.setSpeed(20);
+    stepperMotor1.setSpeed(20);
 
   delay(5000);
   
@@ -48,8 +48,8 @@ void loop() {
         commands = strtok (NULL, " ,.-");
 
         if(motor1 != lastMotor1) {
-            motor1.step(motor1);
-            lastMotor1 = motor1
+            stepperMotor1.step(motor1);
+            lastMotor1 = motor1;
         }
 
         if(motor2 != lastMotor2) {
