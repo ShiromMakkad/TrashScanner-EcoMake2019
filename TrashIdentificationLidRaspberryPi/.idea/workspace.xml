@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="438d0d42-1985-43eb-8ff5-c535dcba87fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArduinoInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/ArduinoInterface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,7 +90,7 @@
       <updated>1571493253514</updated>
       <workItem from="1571493257336" duration="3834000" />
       <workItem from="1571578544981" duration="2329000" />
-      <workItem from="1571581506025" duration="1083000" />
+      <workItem from="1571581506025" duration="2598000" />
     </task>
     <servers />
   </component>

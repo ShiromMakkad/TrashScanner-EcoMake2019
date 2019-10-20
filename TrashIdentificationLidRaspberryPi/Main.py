@@ -24,11 +24,17 @@ def loop():
         statement = "Light: " + str(ArduinoInterface.Sensors.Light.light)
 
         if (GPIO.input(23) == False):
-            print("left")
+            #Left
+            ArduinoInterface.Outputs.Motors.motor1 = 25;
+            ArduinoInterface.Outputs.Motors.motor2 = -25;
         elif(GPIO.input(24) == False):
-            print("center")
-        elif(GPIO.input(25) == False):
-            print("right")
+            #Center
+            ArduinoInterface.Outputs.Motors.motor1 = 3;
+            ArduinoInterface.Outputs.Motors.motor2 = 3;
+        elif(GPIO.input(26) == False):
+            #Right
+            ArduinoInterface.Outputs.Motors.motor1 = -25;
+            ArduinoInterface.Outputs.Motors.motor2 = 25;
 
         time.sleep(0.05)
 
