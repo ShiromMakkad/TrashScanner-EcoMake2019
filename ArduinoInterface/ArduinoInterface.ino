@@ -1,7 +1,26 @@
+#include <Stepper.h>
+int FourPin = 12;
+int FivePin = 11;
+int SixPin = 10;
+int SevenPin = 9;
+     
+Stepper motor(512, FourPin, FivePin, SixPin, SevenPin); 
+
 void setup(void)
 {
   //Begin Serial
   Serial.begin(115200);
+  pinMode(FourPin, OUTPUT);
+  pinMode(FivePin, OUTPUT);
+  pinMode(SixPin, OUTPUT);
+  pinMode(SevenPin, OUTPUT);
+     
+  // this line is for Leonardo's, it delays the serial interface
+  // until the terminal window is opened
+  while (!Serial);
+      
+    Serial.begin(9600);
+    motor.setSpeed(20);
 
   delay(5000);
   
@@ -25,7 +44,7 @@ void loop() {
         double motor2 = strtod(commands, NULL);
         commands = strtok (NULL, " ,.-");
 
-        //Set motor power
+        motor.step(motor1);
     
         //Diplay data
         Serial.print(getSensorData());
