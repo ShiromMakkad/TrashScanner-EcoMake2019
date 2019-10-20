@@ -15,6 +15,39 @@ class Sensors:
                 self._x = value
             else:
                 raise ValueError("Light must be between 0 and 1000")
+class Outputs:
+    class Motors:
+        def __init__(self):
+            self._motor1 = None
+            self._motor2 = None
+
+        @property
+        def motor1(self):
+            if(self._motor1 == None):
+                return 0;
+            else:
+                return self._motor1
+
+        @motor1.setter
+        def motor1(self, value):
+            if 0 <= value <= 1:
+                self._motor1 = value
+            else:
+                raise ValueError("Motors must be between 0 and 1")
+
+        @property
+        def motor2(self):
+            if(self._motor2 == None):
+                return 0;
+            else:
+                return self._motor2
+
+        @motor2.setter
+        def motor2(self, value):
+            if 0 <= value <= 1:
+                self._motor2 = value
+            else:
+                raise ValueError("Motors must be between 0 and 1")
 
 class Arduino:
     ready = False
@@ -65,6 +98,6 @@ class Arduino:
     def _writeData(self):
         self.__ser.reset_input_buffer()
 
-        writeString = ''.join([str(2), ","])
+        writeString = ''.join([str(Outputs.Motors.motor1), ",", str(Outputs.Motors.motor2), ","])
 
         self.__ser.write(writeString.encode("utf-8"))

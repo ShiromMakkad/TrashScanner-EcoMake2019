@@ -7,7 +7,7 @@ def main():
     path = Path(os.getcwd())/"data"
     data = ImageDataBunch.from_folder(path,test="test",ds_tfms=tfms,bs=16)
 
-    learn = create_cnn(data,models.resnet34,metrics=error_rate)
+    learn = create_cnn(data,models.resnet34,metrics=error_rate,num_workers=0)
     learn.model
     learn.lr_find(start_lr=1e-6,end_lr=1e1)
     learn.recorder.plot()

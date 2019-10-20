@@ -18,7 +18,14 @@ void loop() {
         Serial.readBytes(receivedChars, Serial.available());
   
         char* commands = strtok(receivedChars, ",");
-        double output1 = strtod(commands, NULL);
+
+        double motor1 = strtod(commands, NULL);
+        commands = strtok (NULL, " ,.-");
+  
+        double motor2 = strtod(commands, NULL);
+        commands = strtok (NULL, " ,.-");
+
+        //Set motor power
     
         //Diplay data
         Serial.print(getSensorData());
@@ -29,5 +36,5 @@ void loop() {
 }
 
 int getSensorData() {
-  return analogRead(0);
+  return 2;
 }
