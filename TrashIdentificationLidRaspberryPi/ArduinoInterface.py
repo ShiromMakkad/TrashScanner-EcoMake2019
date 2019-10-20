@@ -30,10 +30,10 @@ class Outputs:
 
         @motor1.setter
         def motor1(self, value):
-            if 0 <= value <= 1:
+            if -200 <= value <= 200:
                 self._motor1 = value
             else:
-                raise ValueError("Motors must be between 0 and 1")
+                raise ValueError("Motors must be between -200 and 200")
 
         @property
         def motor2(self):
@@ -44,17 +44,17 @@ class Outputs:
 
         @motor2.setter
         def motor2(self, value):
-            if 0 <= value <= 1:
+            if -200 <= value <= 200:
                 self._motor2 = value
             else:
-                raise ValueError("Motors must be between 0 and 1")
+                raise ValueError("Motors must be between -200 and 200")
 
 class Arduino:
     ready = False
 
     def __init__(self):
         try:
-            self.__ser = serial.Serial("COM3", baudrate = 115200)
+            self.__ser = serial.Serial("COM5", baudrate = 115200)
         except:
             print("Unable to connect")
 

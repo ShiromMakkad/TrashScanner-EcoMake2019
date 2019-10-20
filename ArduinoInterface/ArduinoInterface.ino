@@ -3,8 +3,11 @@ int FourPin = 12;
 int FivePin = 11;
 int SixPin = 10;
 int SevenPin = 9;
+
+double lastMotor1 = 0;
+double lastMotor2 = 0;
      
-Stepper motor(512, FourPin, FivePin, SixPin, SevenPin); 
+Stepper motor1(512, FourPin, FivePin, SixPin, SevenPin); 
 
 void setup(void)
 {
@@ -44,7 +47,14 @@ void loop() {
         double motor2 = strtod(commands, NULL);
         commands = strtok (NULL, " ,.-");
 
-        motor.step(motor1);
+        if(motor1 != lastMotor1) {
+            motor1.step(motor1);
+            lastMotor1 = motor1
+        }
+
+        if(motor2 != lastMotor2) {
+          lastMotor2 = motor2;
+        }
     
         //Diplay data
         Serial.print(getSensorData());
