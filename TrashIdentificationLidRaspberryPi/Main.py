@@ -10,7 +10,7 @@ def setup():
 
     GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     try:
         _thread.start_new_thread( ArduinoInterface.Arduino().begin, () )
